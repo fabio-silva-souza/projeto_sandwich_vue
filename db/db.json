@@ -1,0 +1,90 @@
+{
+  "ingredientes": {
+    "paes": [
+      {
+        "id": 1,
+        "tipo": "Italiano Branco"
+      },
+      {
+        "id": 2,
+        "tipo": "Frances"
+      },
+      {
+        "id": 3,
+        "tipo": "7 grãos"
+      },
+      {
+        "id": 4,
+        "tipo": "Integral"
+      }
+    ],
+    "proteinas": [
+      {
+        "id": 1,
+        "tipo": "Lentilha burger"
+      },
+      {
+        "id": 2,
+        "tipo": "Vegetal burger"
+      },
+      {
+        "id": 3,
+        "tipo": "Grão-de-bico burger"
+      },
+      {
+        "id": 4,
+        "tipo": "Soja burger"
+      }
+    ],
+    "opcionais": [
+      {
+        "id": 1,
+        "tipo": "Azeitona"
+      },
+      {
+        "id": 2,
+        "tipo": "Veggie Cheddar"
+      },
+      {
+        "id": 3,
+        "tipo": "Rucúla"
+      },
+      {
+        "id": 4,
+        "tipo": "Tomate"
+      },
+      {
+        "id": 5,
+        "tipo": "Cebola roxa"
+      },
+      {
+        "id": 6,
+        "tipo": "Pepino"
+      }
+    ]
+  },
+  "status": [
+    {
+      "id": 1,
+      "tipo": "Solicitado"
+    },
+    {
+      "id": 2,
+      "tipo": "Em produção"
+    },
+    {
+      "id": 3,
+      "tipo": "Finalizado"
+    }
+  ],
+  "sandwiches": [
+    {
+      "userName": "Neide",
+      "proteina": "Grão-de-bico burger",
+      "pao": "Frances",
+      "opcionais": [],
+      "status": "Em produção",
+      "id": 2
+    }
+  ]
+}
