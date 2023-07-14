@@ -2,12 +2,13 @@
     <div>
         <message :msg="msg" v-show="msg"/>
         <div>
-            <form id="sandwich_form" @submit="createSandwich">
+            <form id="lanche_form" @submit="createlanche">
                 <div class="input-container">
                     <label for="userName">Nome do cliente:</label>
                     <input type="text" id="userName" name="userName" v-model="userName" placeholder="Digite o seu nome">
                 </div>
-                <div class="input-container">
+                <menu-v />
+                <!-- <div class="input-container">
                     <label for="pao">Escolha seu pão:</label>
                     <select name="pao" id="pao" v-model="pao">
                         <option value="">Selecione o seu pão</option>
@@ -15,13 +16,13 @@
                             {{ pao.tipo }}
                         </option>
                     </select>    
-                </div>
+                </div> -->
                 <div class="input-container">
-                    <label for="proteinas">Escolha sua proteina:</label>
-                    <select name="proteina" id="proteina" v-model="proteina">
-                        <option value="">Selecione o tipo de proteina</option>
-                        <option v-for="proteina in proteinas" :key="proteina.id" :value="proteina.tipo">
-                            {{ proteina.tipo }}
+                    <label for="recheios">Escolha sua recheio:</label>
+                    <select name="recheio" id="recheio" v-model="recheio">
+                        <option value="">Selecione o tipo de recheio</option>
+                        <option v-for="recheio in recheios" :key="recheio.id" :value="recheio.tipo">
+                            {{ recheio.tipo }}
                         </option>
                     </select>
                 </div>
@@ -33,7 +34,7 @@
                     </div>
                 </div>
                 <div class="input-container">
-                    <input type="submit" class="submit-btn" value="Criar meu Sandwich">
+                    <input type="submit" class="submit-btn" value="Criar meu lanche">
                 </div>
             </form>
         </div>
@@ -41,20 +42,23 @@
 </template>
 
 <script>
+import MenuV from './Menu.vue';
 import Message from './Message.vue';
 
 export default {
-    name: 'SandwichForm' ,
-    components: { Message 
+    name: 'LanchesForm' ,
+    components: { 
+        Message,
+        MenuV
     },
     data() {
         return {
             paes: null,
-            proteinas: null,
+            recheios: null,
             opcionaisdata: null,
             userName: null,
             pao: null,
-            proteina: null,
+            recheio: null,
             opcionais: [],
             msg: null           
         }
@@ -66,16 +70,16 @@ export default {
             const data = await req.json();
 
             this.paes = data.paes;
-            this.proteinas = data.proteinas;
+            this.recheios = data.recheios;
             this.opcionaisdata = data.opcionais;
         },
-        async createSandwich(e) {
+        async createlanche(e) {
         
         e.preventDefault(); 
         
         const data = {
             userName: this.userName,
-            proteina: this.proteina,
+            recheio: this.recheio,
             pao: this.pao,
             opcionais: Array.from(this.opcionais),
             status: "Solicitado"
@@ -83,7 +87,7 @@ export default {
 
         const dataJson = JSON.stringify(data);
 
-        const req = await fetch('http://localhost:3000/sandwiches', {
+        const req = await fetch('http://localhost:3000/lanchees', {
             method: "POST",
             headers: { "Content-Type" : "application/json"},
             body: dataJson
@@ -100,7 +104,7 @@ export default {
 
         // limpar os campos
         this.userName = "";
-        this.proteina = "";
+        this.recheio = "";
         this.pao = "";
         this.opcionais = "";
         }
@@ -112,7 +116,7 @@ export default {
 </script>
 
 <style scoped>
-    #sandwich_form
+    #lanche_form
     {
         max-width: 400px;
         margin: 0 auto ;

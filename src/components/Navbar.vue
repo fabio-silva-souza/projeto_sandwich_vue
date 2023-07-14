@@ -1,7 +1,7 @@
 <template>
     <nav>
         <router-link to="/" id="logo">
-            <img :src="logo" :alt="alt">-ich
+            <img :src="logo" :alt="alt">Lanches
         </router-link>
     <router-link to="/">Home</router-link> 
     <router-link to="/pedidos">Pedidos</router-link>
@@ -21,20 +21,23 @@ export default {
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        background-color: #666;
+        background-color: #00000000;
         border-bottom: 4px solid #111;
         padding: 15px 50px;
     }
     nav a
     {
-        color: chartreuse;
+        color: rgba(128, 255, 0, 0.753);
         text-decoration: none;
         margin: 12px;
         transition: .5s;
+        font-family: 'Caprasimo', cursive;
+        font-weight: 200;
+        font-size: 18px;
     }
     nav a:hover
     {
-        color: aliceblue;
+        color: rgb(255, 255, 255);
     }
     img
     {
@@ -43,7 +46,6 @@ export default {
     #logo
     {
         margin: auto;
-        margin-left: 0;
-        
+        margin-left: 0;  
     }
 </style>

@@ -16,24 +16,44 @@
       {
         "id": 4,
         "tipo": "Integral"
+      },
+      {
+        "id": 5,
+        "tipo": "Ciabatta"
+      },
+      {
+        "id": 6,
+        "tipo": "Brioche"
+      },
+      {
+        "id": 7,
+        "tipo": "Baguete"
+      },
+      {
+        "id": 8,
+        "tipo": "Australiano"
       }
     ],
-    "proteinas": [
+    "recheios": [
       {
         "id": 1,
-        "tipo": "Lentilha burger"
+        "tipo": "Lentilha"
       },
       {
         "id": 2,
-        "tipo": "Vegetal burger"
+        "tipo": "Futuro burger"
       },
       {
         "id": 3,
-        "tipo": "Grão-de-bico burger"
+        "tipo": "Homus"
       },
       {
         "id": 4,
-        "tipo": "Soja burger"
+        "tipo": "Shimeji"
+      },
+      {
+        "id": 5,
+        "tipo": "Berinjela"
       }
     ],
     "opcionais": [
@@ -43,7 +63,7 @@
       },
       {
         "id": 2,
-        "tipo": "Veggie Cheddar"
+        "tipo": "Pimentão"
       },
       {
         "id": 3,
@@ -55,11 +75,19 @@
       },
       {
         "id": 5,
-        "tipo": "Cebola roxa"
+        "tipo": "Cebola"
       },
       {
         "id": 6,
         "tipo": "Pepino"
+      },
+      {
+        "id": 7,
+        "tipo": "Alface"
+      },
+      {
+        "id": 8,
+        "tipo": "Tofu"
       }
     ]
   },
@@ -77,14 +105,5 @@
       "tipo": "Finalizado"
     }
   ],
-  "sandwiches": [
-    {
-      "userName": "Neide",
-      "proteina": "Grão-de-bico burger",
-      "pao": "Frances",
-      "opcionais": [],
-      "status": "Em produção",
-      "id": 2
-    }
-  ]
+  "lanches": []
 }

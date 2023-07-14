@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Make your Sandwich-ich !</h1>
+        <h1> V lanches !</h1>
     </div>
 </template>
 
@@ -16,18 +16,25 @@ export default {
         display: flex;
         align-items: center;
         justify-content: flex-start;
-        background-image: url('https://holyschnitzel.com/wp-content/uploads/2018/06/Menu-Page-Banners-1920x765-panini-and-veggie-sandwiches.jpg');
+        /* background-image: url('https://holyschnitzel.com/wp-content/uploads/2018/06/Menu-Page-Banners-1920x765-panini-and-veggie-sandwiches.jpg'); */
+        background-image: url('https://images.pexels.com/photos/1565982/pexels-photo-1565982.jpeg?cs=srgb&dl=bread-color-copyspace-1565982.jpg&fm=jpg');
         background-size: cover;
         height: 500px;
     }
     h1
     {
-        color: #fff;
+        color: #ffffff;
+        font-family: 'Caprasimo', cursive;
         text-align: center;
-        font-size: 60px;
-        background-color: rgba(0, 0, 0, 0.338);
-        border-radius: 20px;
+        font-size: 70px;
+        font-weight: 300;
+        background-color: rgba(0, 0, 0, 0.548);
+        border-radius: 5px;
         padding: .2em;
+    }
+    img
+    {
+        width: 300px;
     }
     
 </style>

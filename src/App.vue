@@ -12,8 +12,8 @@ export default {
   components: { Navbar, Footer },
   data() {
     return {
-      logo_src: "https://cdn-icons-png.flaticon.com/512/1625/1625062.png",
-      app_name: "Make your sandwich"
+      logo_src: "https://img.icons8.com/?size=512&id=QnlW7elBAFPH&format=png",
+      app_name: "Faça seu lanche"
     }
   }
 }
@@ -21,6 +21,7 @@ export default {
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caprasimo&display=swap');
  
  *
  {
@@ -32,7 +33,8 @@ export default {
 
   body
   {
-    background-color: #1c1c1c85;
+    background-color: #1c1c1cf1;
+    color: #fff;
   }
 
  .main-container

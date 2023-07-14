@@ -16,7 +16,7 @@ export default {
 <style scoped>
     div
     {
-        color: #004085;
+        color: #a2ff77;
         background-color: rgb(203, 231, 255);
         border: 2px solid aliceblue;
         border-radius: 5px;

@@ -1,37 +1,37 @@
 <template>
-   <div id="sandwich-table">
+   <div id="lanche-table">
     <message :msg="msg" v-show="msg"/>
     <div>
-        <div id="sandwich-table-heading">
+        <div id="lanche-table-heading">
             <div class="order-id">#:</div>
             <div>Cliente:</div>
             <div>Pão:</div>
-            <div>Proteina:</div>
+            <div>Recheio:</div>
             <div>Opcionais:</div>
             <div>Ações:</div>
         </div>
     </div>
-    <div id="sandwich-table-rows">
-        <div class="sandwich-table-row" v-for="sandwich in sandwiches" :key="sandwich.id">
-            <div class="order-number">{{ sandwich.id }}</div>
-            <div>{{ sandwich.userName }}</div>
-            <div>{{ sandwich.pao }}</div>
-            <div>{{ sandwich.proteina }}</div>
+    <div id="lanche-table-rows">
+        <div class="lanche-table-row" v-for="lanche in lanches" :key="lanche.id">
+            <div class="order-number">{{ lanche.id }}</div>
+            <div>{{ lanche.userName }}</div>
+            <div>{{ lanche.pao }}</div>
+            <div>{{ lanche.recheio }}</div>
             <div>
                 <ul>
-                    <li v-for="(opcional, index) in sandwich.opcionais" :key="index">
+                    <li v-for="(opcional, index) in lanche.opcionais" :key="index">
                         {{ opcional }}
                     </li>
                 </ul>
             </div>
             <div>
-                <select name="status" class="status" @change="updateSandwich($event, sandwich.id)">
+                <select name="status" class="status" @change="updatelanche($event, lanche.id)">
                     <option value="">Selecione</option>
-                    <option v-for="s in status" :key="s.id" :value="s.tipo" :selected="sandwich.status == s.tipo">
+                    <option v-for="s in status" :key="s.id" :value="s.tipo" :selected="lanche.status == s.tipo">
                         {{ s.tipo }}
                     </option>
                 </select>
-                <button class="delete-btn" @click="deleteSandwich(sandwich.id)">Cancelar</button>
+                <button class="delete-btn" @click="deletelanche(lanche.id)">Cancelar</button>
             </div>
         </div>
       </div>
@@ -49,19 +49,19 @@ export default {
     },
     data() {
         return {
-            sandwiches: null,
-            sandwich_id: null,
+            lanches: null,
+            lanche_id: null,
             status: [],
             msg: null
         }
     },
     methods: {
         async getPedidos() {
-            const req = await fetch("http://localhost:3000/sandwiches");
+            const req = await fetch("http://localhost:3000/lanches");
 
             const data = await req.json();
 
-            this.sandwiches = data;
+            this.lanches = data;
         
             this.getStatus();
         },
@@ -74,9 +74,9 @@ export default {
             this.status = data;
 
         },
-        async deleteSandwich(id) {
+        async deletelanche(id) {
 
-            const req = await fetch(`http://localhost:3000/sandwiches/${id}`, {
+            const req = await fetch(`http://localhost:3000/lanches/${id}`, {
                 method: "DELETE"
             });
 
@@ -93,13 +93,13 @@ export default {
             this.getPedidos();
 
         },
-        async updateSandwich(event, id) {
+        async updatelanche(event, id) {
 
             const option = event.target.value;
 
             const dataJson = JSON.stringify({ status: option });
 
-            const req = await fetch(`http://localhost:3000/sandwiches/${id}`, {
+            const req = await fetch(`http://localhost:3000/lanches/${id}`, {
                 method: "PATCH",
                 headers: {"Content-Type" : "application/json" },
                 body: dataJson
@@ -124,41 +124,41 @@ export default {
 </script>
 
 <style scoped>
-    #sandwich-table
+    #lanche-table
     {
         max-width: 1200px;
         margin: 0 auto;
     }
-    #sandwich-table-heading,
-    #sandwich-table-rows,
-    .sandwich-table-row
+    #lanche-table-heading,
+    #lanche-table-rows,
+    .lanche-table-row
     {
         display: flex;
         flex-wrap: wrap;
     }
 
-    #sandwich-table-heading
+    #lanche-table-heading
     {
         font-weight: bold;
         padding: 12px;
         border-bottom: 3px solid #333;
     }
 
-    #sandwich-table-heading div,
-    .sandwich-table-row div
+    #lanche-table-heading div,
+    .lanche-table-row div
     {
         width: 19%;
     }
 
-    .sandwich-table-row 
+    .lanche-table-row 
     {
         width: 100%;
         padding: 12px;
         border-bottom: 1px solid #ccc;
     }
 
-    #sandwich-table-heading .order-id,
-    .sandwich-table-row .order-number
+    #lanche-table-heading .order-id,
+    .lanche-table-row .order-number
     {
         width: 5%;
     }

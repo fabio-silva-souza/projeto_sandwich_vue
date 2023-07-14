@@ -1,21 +1,21 @@
 <template>
 <banner />
   <div class="main-container">
-    <h1>Monte seu Sandwich ich</h1>
-    <sandwich-form />
+    <h1>Monte seu Lanche !</h1>
+    <lanches-form />
    </div>
 </template>
 
 <script>
 import Banner from '@/components/Banner.vue'
-import SandwichForm from '@/components/SandwichForm.vue'
+import LanchesForm from '@/components/LanchesForm.vue'
 export default {
   name: 'Home',
   components: {
     Banner,
-    SandwichForm
+    LanchesForm
   }
 }
 </script>
 
-    SandwichForm
+    LanchesForm

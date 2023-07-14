@@ -1,6 +1,6 @@
 <template>
     <footer>
-        <p>Make your Sandwich-ich &copy; 2023</p>
+        <p>V lanches &copy; 2023</p>
     </footer>
 </template>
 
@@ -13,7 +13,6 @@ export default {
 <style scoped> 
     footer
     {
-    
         display: flex;
         justify-content: center;
         align-items: center;
