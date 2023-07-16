@@ -3,7 +3,7 @@
     "paes": [
       {
         "id": 1,
-        "tipo": "Italiano Branco"
+        "tipo": "Italiano"
       },
       {
         "id": 2,
@@ -11,7 +11,7 @@
       },
       {
         "id": 3,
-        "tipo": "7 grãos"
+        "tipo": "Graos"
       },
       {
         "id": 4,
@@ -37,23 +37,28 @@
     "recheios": [
       {
         "id": 1,
-        "tipo": "Lentilha"
+        "tipo": "Lentilha",
+        "descricao": "hamburger de lentilha"
       },
       {
         "id": 2,
-        "tipo": "Futuro burger"
+        "tipo": "Futuro burger",
+        "descricao": "hamburger de planta"
       },
       {
         "id": 3,
-        "tipo": "Homus"
+        "tipo": "Homus",
+        "descricao": "pasta de grão-de-bico"
       },
       {
         "id": 4,
-        "tipo": "Shimeji"
+        "tipo": "Shimeji",
+        "descricao": "shimeji grelhado"
       },
       {
         "id": 5,
-        "tipo": "Berinjela"
+        "tipo": "Berinjela",
+        "descricao": "antepasto de berinjela"
       }
     ],
     "opcionais": [

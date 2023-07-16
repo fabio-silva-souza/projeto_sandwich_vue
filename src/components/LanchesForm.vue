@@ -99,7 +99,7 @@ export default {
         this.msg = `Pedido N° ${res.id} realizado com sucesso`
 
 
-        // limpar msg
+        // limpar msg            
         setTimeout(() => this.msg = "", 3000);
 
         // limpar os campos
@@ -118,16 +118,19 @@ export default {
 <style scoped>
     #lanche_form
     {
-        max-width: 400px;
+        max-width: 90%;
         margin: 0 auto ;
+        /* background-image: url('https://cdn.wallpapersafari.com/77/80/lBpfjq.jpg');
+        background-repeat: no-repeat;
+        background-size: cover; */
     }
 
-    .input-container
+    /* .input-container
     {
         display: flex;
         flex-direction: column;
         margin-bottom: 20px;
-    }
+    } */
 
     label
     {

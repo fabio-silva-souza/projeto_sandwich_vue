@@ -16,7 +16,6 @@ export default {
         display: flex;
         align-items: center;
         justify-content: flex-start;
-        /* background-image: url('https://holyschnitzel.com/wp-content/uploads/2018/06/Menu-Page-Banners-1920x765-panini-and-veggie-sandwiches.jpg'); */
         background-image: url('https://images.pexels.com/photos/1565982/pexels-photo-1565982.jpeg?cs=srgb&dl=bread-color-copyspace-1565982.jpg&fm=jpg');
         background-size: cover;
         height: 500px;

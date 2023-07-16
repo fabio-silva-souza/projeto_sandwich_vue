@@ -1,5 +1,8 @@
 <template>
-    <div class="options-1"></div>
+    <div class="paes-menu"></div>
+    <div class="recheios-menu">
+        <h1>TESTE</h1>
+    </div>
     <!-- <div class="input-container">
     <label for="pao">Escolha seu pão:</label>
     <select name="pao" id="pao" v-model="pao">
@@ -19,32 +22,117 @@ export default {
     },
     methods: {
         async renderMenuOptions() {
-            let vmen = document.querySelector('.options-1').innerHTML = '';
-    
             const req = await fetch('http://localhost:3000/ingredientes');
             const data = await req.json();
+            
             let menuPaes = data.paes;
+            let paesContainer = '<label for="pao">Escolha seu pão :</label>';
 
-            let menuOptions = '';
-
-            for ( let i = 0;i < menuPaes.lenght; i++ ) {
+            for ( let i = 0; i < menuPaes.length; i++ ) {
                 const optionsPaes = menuPaes[i];
 
                 const {tipo} = optionsPaes
-                const menuV = 
+                const menuP = 
                 `<div class="card">
-                   <img src="../imgs/${tipo.toLowerCase()}-pao.png" class="bread-img">
-                  <span>${tipo}</span>
+                   <img src="/imgs/${tipo.toLowerCase()}-pao.png"
+                   width="300" class="bread-img">
+                  <span class="bread-type">${tipo}</span>
                  </div>
                 `;
 
-                vmen += menuV;
+                paesContainer += menuP;
+            }
+            document.querySelector('.paes-menu').innerHTML = paesContainer;
+
+            let menuRecheios = data.recheios;
+            let recheiosContainer = '<label for="pao">Escolha seu recheio :</label>';
+
+            for ( let i = 0; i < menuRecheios.length; i++ ) {
+                const optionsRecheios = menuRecheios[i];
+
+                const {tipo, descricao} = optionsRecheios;
+                const menuR = 
+                `<div class="card-recheios">
+                    <img src="./imgs/${tipo.toLowerCase()}-recheio.png" class="filling-img">
+                  <span>${tipo}</span>
+                  <span>${descricao}</span>
+                 </div>
+                `;
+
+                paesContainer += menuR;
             }
         }
     },
     mounted() {
         this.renderMenuOptions();
     }
-
 }
 </script>
+
+<style>
+    .paes-menu
+    {
+        display: grid;
+        grid-template-columns: auto auto;
+
+        position: relative;
+        padding-top: 40px;
+        width: 100%;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+
+        
+        box-shadow: 10px 10px 10px 15px #1c1c1c;
+        margin-bottom: 30px;
+        overflow-x: scroll;
+    }
+    .card
+    {
+        display: flex;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+        margin: 25px;
+        width: 330px;
+        height: 230px;
+        border-radius: 5px;
+        border: 2px solid white;
+        overflow: hidden;
+        transition: 0.5s;
+    }
+     .bread-img
+    {
+        box-shadow: 15px 15px 15px 30px rgba(0, 0, 0, 0.505);
+        border-radius: 5px;
+        transition: 0.5s;
+    }
+    .bread-img:hover
+    {
+        filter: grayscale(100%);
+        transition: 0.5s;
+    }
+    .card:hover 
+    {
+        border: 2px solid green;
+        transition: 0.5s;
+    }
+    label
+    {
+        font-size: 30px;
+        margin: 10px;
+        top: 0;
+        color: aliceblue;
+        position: absolute;
+    }
+    .bread-type
+    {
+        font-size: 20px;
+        font-family: 'Caprasimo', cursive;
+        color: aliceblue;
+        position: absolute;
+        bottom: 2px;
+        background-color: #1c1c1c;
+        padding: 5px 150px;
+    }
+</style>

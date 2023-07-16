@@ -20,107 +20,73 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background-image: url('https://thumbs.dreamstime.com/b/white-powder-black-background-wheat-flour-black-102275065.jpg');
-      background-repeat: no-repeat;
-      background-size: cover;  
+       
 
-    }
+    } 
     
-    #gl
+    .gl
     {
-      width: 100%;
-      flex-wrap: wrap;
+      width: 90%;
+      height: 50vh;
+      background-color: #303030a9;
+      display: flex;
       align-items: center;
       justify-content: space-around;
-      display: grid;
-      grid-template-columns: auto auto;
-      overflow: hidden;
-      background-color: #1c1c1ccf;
-
     }
-    .card
+    .card-recheios
     {
       display: flex;
-      position: relative;
-      align-items: center;
-      justify-content: center;
-      margin: 25px;
-      padding: 20px;
-      width: 330px;
-      height: 230px;
+      flex-direction: column;
+
       border-radius: 5px;
+      border-top-left-radius: 50%;
+      border-top-right-radius: 50%;
       border: 2px solid white;
-      overflow: hidden;
-      transition: 0.5s;
     
-    }
-    .bread-img
-    {
-      width: 100%;
-      border-radius: 5px;
+      padding-bottom: 15px;
       transition: 0.5s;
     }
-    .bread-img:hover
+    .filling-img
+    {
+      width: 200px;
+      border-radius: 50%;
+      transition: 0.5s;
+    }
+    .filling-img:hover
     {
       filter: grayscale(100%);
       transition: 0.5s;
     }
-    .card:hover 
+    .card-recheios:hover
     {
       border: 2px solid green;
       transition: 0.5s;
     }
+    label
+    {
+        font-size: 30px;
+        margin: 10px;
+        top: 0;
+        color: aliceblue;
+        position: absolute;
+    }
     span
     {
-      font-size: 20px;
+      text-align: center;
+      margin-top: 10px;
+      color: white;
       font-family: 'Caprasimo', cursive;
-      color: aliceblue;
-      position: absolute;
-      bottom: 2px;
-      background-color: #1c1c1c;
-      padding: 5px 100px;
     }
+   
+    
   </style>
 </head>
 <body>
-  <div id="gl">
-  <!-- <div class="card">
-    <img src="../imgs/baquete-pao.png" class="bread-img">
-    <span>Nome pão</span>
-  </div>
-  <div class="card">
-    <img src="../imgs/australiano-pao.png" class="bread-img">
-    <span>Nome pão</span>
-  </div>
-  <div class="card">
-    <img src="../imgs/brioche-pao.png" class="bread-img">
-    <span>Nome pão</span>
-  </div>
-  <div class="card">
-    <img src="../imgs/ciabatta-pao.png" class="bread-img">
-    <span>Nome pão</span>
-  </div>
-  <div class="card">
-    <img src="../imgs/italiano-pao.png" class="bread-img">
-    <span>Nome pão</span>
-  </div>
-  <div class="card">
-    <img src="../imgs/integral-pao.png" class="bread-img">
-    <span>Nome pão</span>
-  </div>
-  <div class="card">
-    <img src="../imgs/integral-pao.png" class="bread-img">
-    <span>Nome pão</span>
-  </div>
-  <div class="card">
-    <img src="../imgs/integral-pao.png" class="bread-img">
-    <span>Nome pão</span>
-  </div> -->
-</div>
+  <div class="gl"></div>
 
 <script>
 
- let paes = [
+ const paes = [
       {
         id: 1,
         tipo: "Italiano"
@@ -131,7 +97,7 @@
       },
       {
         id: 3,
-        tipo: "7 grãos"
+        tipo: "Grãos"
       },
       {
         id: 4,
@@ -141,25 +107,29 @@
         id: 5,
         tipo: "Ciabatta"
       }
-    ]
+    ];
 
-    const menu = document.getElementById('gl').innerHTML = '';
+    function renderMenu() {
+      let menuP = '<label>Escolha um recheio :</label>';
 
-
-  for ( let i = 0;i < paes.lenght; i++ ) {
+  for ( let i = 0; i < paes.length; i++ ) {
                 const optionsPaes = paes[i];
-  
+                
                 const {tipo} = optionsPaes
-              
+          
                 const menuV = 
-                `<div class="card">
-                   <img src="../imgs/${tipo.toLowerCase()}-pao.png" class="bread-img">
+                `<div class="card-recheios">
+                    <img src="./imgs/homus-recheio.png" class="filling-img">
                   <span>${tipo}</span>
+                  <span>bla bla bla</span>
                  </div>
                 `;
-                menu += menuV;
-
+                menuP += menuV;
             }
+            document.querySelector('.gl').innerHTML = menuP;
+          }
+          renderMenu();
+
 
 </script>
 </body>

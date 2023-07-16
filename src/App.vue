@@ -33,8 +33,10 @@ export default {
 
   body
   {
-    background-color: #1c1c1cf1;
+    background-image: linear-gradient(180deg, #1c1c1c, #565656);
     color: #fff;
+    max-width: 100%;
+    overflow-x: hidden;
   }
 
  .main-container
