@@ -59,8 +59,9 @@ export default {
                  </div>
                 `;
 
-                paesContainer += menuR;
+                recheiosContainer += menuR;
             }
+            document.querySelector('.recheios-menu').innerHTML = recheiosContainer;
         }
     },
     mounted() {
@@ -85,7 +86,7 @@ export default {
         
         box-shadow: 10px 10px 10px 15px #1c1c1c;
         margin-bottom: 30px;
-        overflow-x: scroll;
+        /* overflow-x: scroll; */
     }
     .card
     {
@@ -135,4 +136,35 @@ export default {
         background-color: #1c1c1c;
         padding: 5px 150px;
     }
+
+    .recheios-menu
+    {
+        width: 100%;
+        height: 50vh;
+        background-color: #303030a9;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+    .card-recheios
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        border-radius: 5px;
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+        border: 2px solid white;
+        
+        padding-bottom: 15px;
+        transition: 0.5s;
+    }
+    .filling-img
+    {
+      width: 150px;
+      border-radius: 50%;
+      transition: 0.5s;
+    }
+
 </style>
