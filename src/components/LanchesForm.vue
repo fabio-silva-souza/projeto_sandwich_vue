@@ -3,10 +3,7 @@
         <message :msg="msg" v-show="msg"/>
         <div>
             <form id="lanche_form" @submit="createlanche">
-                <div class="input-container">
-                    <label for="userName">Nome do cliente:</label>
-                    <input type="text" id="userName" name="userName" v-model="userName" placeholder="Digite o seu nome">
-                </div>
+            
                 <menu-v />
                 <!-- <div class="input-container">
                     <label for="pao">Escolha seu pão:</label>
@@ -17,7 +14,7 @@
                         </option>
                     </select>    
                 </div> -->
-                <div class="input-container">
+                <!-- <div class="input-container">
                     <label for="recheios">Escolha sua recheio:</label>
                     <select name="recheio" id="recheio" v-model="recheio">
                         <option value="">Selecione o tipo de recheio</option>
@@ -25,13 +22,17 @@
                             {{ recheio.tipo }}
                         </option>
                     </select>
-                </div>
-                <div id="opcionais-container" class="input-container">
+                </div> -->
+                <!-- <div id="opcionais-container" class="input-container">
                     <label id="opcionais-title" for="opcionais">Opcionais:</label>
                     <div class="checkbox-container" v-for="opcional in opcionaisdata" :key="opcional.id" >
                         <input type="checkbox" name="opcionais"  v-model="opcionais" :value="opcional.tipo">
                         <span>{{ opcional.tipo }}</span>
                     </div>
+                </div> -->
+                <div class="input-container">
+                    <label for="userName">Nome do cliente:</label>
+                    <input type="text" id="userName" name="userName" v-model="userName" placeholder="Digite o seu nome">
                 </div>
                 <div class="input-container">
                     <input type="submit" class="submit-btn" value="Criar meu lanche">

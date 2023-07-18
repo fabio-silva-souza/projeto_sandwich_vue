@@ -33,7 +33,7 @@ export default {
 
   body
   {
-    background-image: linear-gradient(180deg, #1c1c1c, #565656);
+    background-image: linear-gradient(180deg, #1c1c1c, #393939);
     color: #fff;
     max-width: 100%;
     overflow-x: hidden;
@@ -41,8 +41,8 @@ export default {
 
  .main-container
  {
-  margin: 50px;
-  min-height: 360px;
+  /* margin: 50px; */
+  /* min-height: 360px; */
   
  }
  
