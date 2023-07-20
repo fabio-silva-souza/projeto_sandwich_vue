@@ -1,18 +1,13 @@
 <template>
-    <div class="paes-menu"></div>
-    <h1>Recheios</h1>
+    <select class="paes-menu" name="pao" id="pao"></select>
+        <h1>Recheios</h1>
     <div class="recheios-menu"></div>
-    <h1>Opcionias</h1>
+        <h1>Opcionias</h1>
     <div class="opcionais"></div>
-    <!-- <div class="input-container">
-    <label for="pao">Escolha seu pão:</label>
-    <select name="pao" id="pao" v-model="pao">
-    <option value="">Selecione o seu pão</option>
-    <option v-for="pao in paes" :key="pao.id" :value="pao.tipo">
-    {{ pao.tipo }}
-    </option>
-    </select>    
-    </div> -->
+    <div class="input-name">
+        <h2 for="userName">Nome do cliente:</h2>
+            <input type="text" id="userName" name="userName" v-model="userName" placeholder="Digite o seu nome">
+        </div>
 </template>
 
 <script>
@@ -21,12 +16,33 @@ export default {
     props: {
         
     },
+    data(){
+        return {
+            paes: null,
+            recheios: null,
+            opcionaisdata: null,
+            pao: null,
+            recheio: null,
+            opcionais: [],          
+        }
+    },
     methods: {
-        async renderMenuOptions() {
+        async getIngredientes() {
+
             const req = await fetch('http://localhost:3000/ingredientes');
             const data = await req.json();
-//add function
-            let menuPaes = data.paes;
+
+            this.paes = data.paes;
+            this.recheios = data.recheios;
+            this.opcionaisdata = data.opcionais;
+        // },
+        // renderMenuOptions() {
+            // const req = await fetch('http://localhost:3000/ingredientes');
+            // const data = await req.json();
+
+// render bread
+            // renderBread() {
+            let menuPaes = this.paes;
             let paesContainer = '<h2 for="pao">Escolha seu pão :</h2>';
 
             for ( let i = 0; i < menuPaes.length; i++ ) {
@@ -44,9 +60,10 @@ export default {
                 paesContainer += menuP;
             }
             document.querySelector('.paes-menu').innerHTML = paesContainer;
-
-//add function
-            let menuRecheios = data.recheios;
+            // },
+// render flling   
+            // renderFilling() {         
+            let menuRecheios = this.recheios;
             let recheiosContainer = '<h2 for="pao">Escolha seu recheio :</h2>';
 
             for ( let i = 0; i < menuRecheios.length; i++ ) {
@@ -64,10 +81,10 @@ export default {
                 recheiosContainer += menuR;
             }
             document.querySelector('.recheios-menu').innerHTML = recheiosContainer;
-
-//add function
-
-            let opcionais = data.opcionais;
+            // },
+//render options
+            // renderOptions() {
+            let opcionais = this.opcionaisdata;
             let opcionaisContainer = '';
 
             for ( let i = 0; i < opcionais.length; i++ ) {
@@ -84,11 +101,14 @@ export default {
                opcionaisContainer += menuO;
             }
             document.querySelector('.opcionais').innerHTML = opcionaisContainer;
-          
-        }
-    },
+            }
+        },
     mounted() {
-        this.renderMenuOptions();
+        this.getIngredientes();
+        // this.renderMenuOptions();
+        // this.renderBread();
+        // this.renderFilling();
+        // this.renderOptions();
     }
 }
 </script>
@@ -129,7 +149,8 @@ export default {
         border-radius: 5px;
         transition: 0.5s;
     }
-    .bread-img:hover
+    .filling-img:hover,
+    .bread-img:hover  
     {
         filter: grayscale(100%);
         transition: 0.5s;
@@ -141,10 +162,13 @@ export default {
     }
     h2
     {
-        font-size: 30px;
+        font-size: 20px;
         margin: 10px;
         top: 0;
+        left: 0;
         color: aliceblue;
+        padding: 5px 10px;
+        border-left: 4px solid chartreuse;
         position: absolute;
     }
     .bread-type
@@ -153,18 +177,16 @@ export default {
         font-family: 'Caprasimo', cursive;
         color: aliceblue;
         position: absolute;
-        bottom: 2px;
+        bottom: 0;
         background-color: #1c1c1c;
         padding: 5px 150px;
     }
-
-
 
     .recheios-menu
     {
         position: relative;
         width: 100%;
-        height: 50vh;
+        height: 55vh;
         background-color: #363036;
         display: flex;
         align-items: center;
@@ -201,13 +223,14 @@ export default {
     .opcionais
     {
         display: grid;
+        width: 80%;
         grid-template-columns: auto auto;
         align-items: center;
         justify-content: space-around;
     }
     h1
     {
-        font-size:28px;
+        font-size: 35px;
         line-height:28px;
         margin: 25px;
     }
@@ -254,13 +277,12 @@ export default {
         width: 40px;
         height: 40px;
         display:flex;
-        content: '\f00c';
+        /* content: '🔘'; */
         font-size: 25px;
         font-weight:bold;
         position: absolute;
         align-items:center;
         justify-content:center;
-        font-family:'';
     }
     .option-input:checked::after 
     {
@@ -290,6 +312,25 @@ export default {
         margin-top: -80px;
         opacity: 0;
     }
+    }
+
+    input
+    {
+        padding: 5px 10px;
+        width: 300px;
+    }
+
+    .input-name
+    {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        margin: 50px 0;
+        width: 100%;
+        height: 200px;
+        background-color: #292929;
+        align-items: center;
+        justify-content: center;
     }
 
 

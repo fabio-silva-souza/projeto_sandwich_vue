@@ -30,10 +30,10 @@
                         <span>{{ opcional.tipo }}</span>
                     </div>
                 </div> -->
-                <div class="input-container">
+                <!-- <div class="input-name">
                     <label for="userName">Nome do cliente:</label>
                     <input type="text" id="userName" name="userName" v-model="userName" placeholder="Digite o seu nome">
-                </div>
+                </div> -->
                 <div class="input-container">
                     <input type="submit" class="submit-btn" value="Criar meu lanche">
                 </div>
@@ -54,26 +54,26 @@ export default {
     },
     data() {
         return {
-            paes: null,
-            recheios: null,
-            opcionaisdata: null,
+            // paes: null,
+            // recheios: null,
+            // opcionaisdata: null,
             userName: null,
-            pao: null,
-            recheio: null,
-            opcionais: [],
+            // pao: null,
+            // recheio: null,
+            // opcionais: [],
             msg: null           
         }
     },
     methods: {
-        async getIngredientes() {
+        // async getIngredientes() {
 
-            const req = await fetch('http://localhost:3000/ingredientes');
-            const data = await req.json();
+        //     const req = await fetch('http://localhost:3000/ingredientes');
+        //     const data = await req.json();
 
-            this.paes = data.paes;
-            this.recheios = data.recheios;
-            this.opcionaisdata = data.opcionais;
-        },
+        //     this.paes = data.paes;
+        //     this.recheios = data.recheios;
+        //     this.opcionaisdata = data.opcionais;
+        // },
         async createlanche(e) {
         
         e.preventDefault(); 
@@ -119,34 +119,38 @@ export default {
 <style scoped>
     #lanche_form
     {
-        max-width: 90%;
-        margin: 0 auto ;
-        /* background-image: url('https://cdn.wallpapersafari.com/77/80/lBpfjq.jpg');
-        background-repeat: no-repeat;
-        background-size: cover; */
-    }
-
-    /* .input-container
-    {
+        max-width: 100%;
         display: flex;
         flex-direction: column;
-        margin-bottom: 20px;
-    } */
+        align-items: center;
+    }
 
     label
     {
         font-weight: bold;
         margin-bottom: 15px;
-        color: #222;
+        color: #fff;
         padding: 5px 10px;
         border-left: 4px solid chartreuse;
     }
 
-    input, select 
+    /* input
     {
         padding: 5px 10px;
         width: 300px;
     }
+
+    .input-name
+    {
+        display: flex;
+        flex-direction: column;
+        margin: 50px 0;
+        width: 100%;
+        height: 200px;
+        background-color: #292929;
+        align-items: center;
+        justify-content: center;
+    } */
 
     #opcionais-container
     {
@@ -159,7 +163,7 @@ export default {
         width: 100%;
     }
 
-    .checkbox-container
+    /* .checkbox-container
     {
         display: flex;
         align-items: flex-start;
@@ -177,7 +181,7 @@ export default {
     {
         margin-left: 6px;
         font-weight: bold;
-    }
+    } */
 
     .submit-btn
     {
@@ -186,8 +190,9 @@ export default {
         font-weight: bold;
         border: 2px solid #fff;
         padding: 10px;
+        margin: 30px;
         font-size: 16px;
-        margin: 0 auto;
+        /* margin: 0 auto; */
         cursor: pointer;
         transition: .5s;
     }
